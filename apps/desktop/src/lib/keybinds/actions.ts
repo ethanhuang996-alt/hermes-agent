@@ -89,6 +89,8 @@ export const KEYBIND_ACTIONS: readonly KeybindActionMeta[] = [
   // ── View (layout + appearance + the shortcuts panel itself) ───────────────
   { id: 'view.toggleSidebar', category: 'view', defaults: ['mod+b'] },
   { id: 'view.toggleRightSidebar', category: 'view', defaults: ['mod+j'] },
+  // ⌘G — "g" for git; the review pane is the source-control view.
+  { id: 'view.toggleReview', category: 'view', defaults: ['mod+g'] },
   { id: 'view.showFiles', category: 'view', defaults: [] },
   { id: 'view.showTerminal', category: 'view', defaults: TERMINAL_TOGGLE_DEFAULTS },
   // ⌘\ — the backslash reads like a mirror line flipping the layout.

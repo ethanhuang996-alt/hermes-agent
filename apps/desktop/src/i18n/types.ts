@@ -57,6 +57,22 @@ export interface Translations {
     off: string
   }
 
+  fileMenu: {
+    revealFinder: string
+    revealExplorer: string
+    revealFileManager: string
+    revealInSidebar: string
+    copyPath: string
+    copyRelativePath: string
+    rename: string
+    delete: string
+    renameTitle: string
+    renameLabel: string
+    deleteTitle: (name: string) => string
+    deleteBody: string
+    pathCopied: string
+  }
+
   boot: {
     ready: string
     desktopBootFailedWithMessage: (message: string) => string
@@ -958,6 +974,7 @@ export interface Translations {
       unpin: string
       copyId: string
       export: string
+      branchFrom: string
       rename: string
       archive: string
       newWindow: string
@@ -1070,6 +1087,49 @@ export interface Translations {
     stop: string
     dismiss: string
     exit: (code: number) => string
+    coding: {
+      title: string
+      noBranch: string
+      detached: string
+      clean: string
+      changed: (count: number) => string
+      ahead: (count: number) => string
+      behind: (count: number) => string
+      review: string
+      close: string
+      openChanges: string
+      openFile: string
+      stage: string
+      unstage: string
+      stageAll: string
+      viewAsTree: string
+      viewAsList: string
+      revert: string
+      revertAll: string
+      revertConfirm: string
+      revertAllConfirm: string
+      staged: string
+      noChanges: string
+      noDiff: string
+      scopeUncommitted: string
+      scopeBranch: string
+      scopeLastTurn: string
+      commit: string
+      commitAndPush: string
+      commitPlaceholder: string
+      generateCommitMessage: string
+      stopGenerating: string
+      createPr: string
+      openPr: string
+      ghMissing: string
+      agentShip: string
+      agentShipPrompt: string
+      newBranch: string
+      branchOffFrom: (base: string) => string
+      switchTo: (branch: string) => string
+      switchFailed: (branch: string) => string
+      worktrees: string
+    }
   }
 
   updates: {
@@ -1347,6 +1407,9 @@ export interface Translations {
   preview: {
     tab: string
     closeTab: (label: string) => string
+    closeOthers: string
+    closeToRight: string
+    closeAll: string
     closePane: string
     loading: string
     unavailable: string
@@ -1357,6 +1420,7 @@ export interface Translations {
     sourceLineTitle: string
     source: string
     renderedPreview: string
+    diff: string
     unknownSize: string
     binaryTitle: string
     binaryBody: (label: string) => string
@@ -1550,7 +1614,7 @@ export interface Translations {
     sessionBusy: string
     branchStopCurrent: string
     branchNoText: string
-    branchTitle: string
+    branchTitle: (n: number) => string
     branchFailed: string
     deleteFailed: string
     archived: string

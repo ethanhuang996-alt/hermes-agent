@@ -345,6 +345,8 @@ export interface SessionInfo {
   message_count: number
   model: null | string
   output_tokens: number
+  /** Parent conversation when this row is a /branch fork. */
+  parent_session_id?: null | string
   preview: null | string
   source: null | string
   started_at: number
