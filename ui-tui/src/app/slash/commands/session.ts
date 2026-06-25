@@ -180,6 +180,7 @@ export const sessionCommands: SlashCommand[] = [
     help: 'compress transcript',
     name: 'compress',
     run: (arg, ctx) => {
+      ctx.transcript.sys('⏳ Compressing…')
       ctx.gateway
         .rpc<SessionCompressResponse>('session.compress', {
           session_id: ctx.sid,
