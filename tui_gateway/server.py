@@ -10422,6 +10422,14 @@ def _(rid, params: dict) -> dict:
                 },
             )
 
+    if name == "compress":
+        if not session:
+            return _err(rid, 4001, "no active session to compress")
+        warning = _mirror_slash_side_effects(
+            params.get("session_id", ""), session, f"/{name} {arg}".strip()
+        )
+        return _ok(rid, {"type": "exec", "output": warning or "✓ Compression complete."})
+
     return _err(rid, 4018, f"not a quick/plugin/skill command: {name}")
 
 
