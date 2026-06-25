@@ -11423,6 +11423,13 @@ def _(rid, params: dict) -> dict:
             {"type": "prefill", "message": target_text, "notice": notice},
         )
 
+    if name == "compress":
+        sid = params.get("session_id", "")
+        if session and sid in _sessions:
+            fb = _mirror_slash_side_effects(sid, session, f"/compress {arg}".strip())
+            return _ok(rid, {"type": "exec", "output": fb or "Compression completed."})
+        return _err(rid, 4001, "no active session — start a conversation first")
+
     if name in {"snapshot", "snap"}:
         subcommand = arg.split(maxsplit=1)[0].lower() if arg else ""
         if subcommand in {"restore", "rewind"}:
