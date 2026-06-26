@@ -258,19 +258,6 @@ class HermesCustomEngine(ContextEngine):
                     "required": ["session_id"],
                 },
             },
-            {
-                "name": "ccr_search",
-                "description": "Search messages that were compacted by compression. Searches across ALL sessions that have been compressed. Optionally filter by session_id. For unconpacted sessions (never hit compression threshold) use session_search instead.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "keyword": {"type": "string", "description": "Keyword to search for in compacted messages"},
-                        "session_id": {"type": "string", "description": "Optional: limit search to a specific session ID"},
-                        "limit": {"type": "integer", "description": "Max results to return (default 10)", "default": 10},
-                    },
-                    "required": ["keyword"],
-                },
-            },
         ]
 
     def handle_tool_call(self, name, args, **kwargs):
@@ -280,13 +267,6 @@ class HermesCustomEngine(ContextEngine):
         if name == "retrieve_compressed_index":
             sid = args.get("session_id", self._session_id or "default")
             return json.dumps(get_compressed_index(sid), ensure_ascii=False)
-        if name == "ccr_search":
-            from .ccr_search import ccr_search as search_fn
-            return search_fn(
-                keyword=args.get("keyword", ""),
-                session_id=args.get("session_id", None),
-                limit=args.get("limit", 10),
-            )
         return json.dumps({"error": f"Unknown tool: {name}"})
 
     def get_status(self):
