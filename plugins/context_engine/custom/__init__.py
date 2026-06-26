@@ -260,7 +260,7 @@ class HermesCustomEngine(ContextEngine):
             },
             {
                 "name": "ccr_search",
-                "description": "Search compressed original messages by keyword. Use when you need to find details in compacted conversation turns.",
+                "description": "Search compressed original messages by keyword. Only works on messages that were compacted in the CURRENT session. For old session history use session_search instead.",
                 "parameters": {
                     "type": "object",
                     "properties": {
