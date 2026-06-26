@@ -1,7 +1,7 @@
 """CCR 搜索工具 — 按关键词搜索压缩掉的原始消息。
 
-仅在当前 session 压缩后使用——找被压掉的中段消息的原文。
-如果跨 session /new 后想找旧内容，用 session_search 而非此工具。
+可搜所有 session 被压缩过的消息（跨 session 可用），也可指定 session_id 限定。
+限制：只有触发过压缩的 session 才会有数据。从未触发压缩的 session 要用 session_search。
 
 用法（agent 内部调用）：
   ccr_search("Nginx 端口") → 返回所有内容中包含 "Nginx 端口" 的原始消息

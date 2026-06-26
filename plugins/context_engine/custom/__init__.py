@@ -260,7 +260,7 @@ class HermesCustomEngine(ContextEngine):
             },
             {
                 "name": "ccr_search",
-                "description": "Search compressed original messages by keyword. Only works on messages that were compacted in the CURRENT session. For old session history use session_search instead.",
+                "description": "Search messages that were compacted by compression. Searches across ALL sessions that have been compressed. Optionally filter by session_id. For unconpacted sessions (never hit compression threshold) use session_search instead.",
                 "parameters": {
                     "type": "object",
                     "properties": {
