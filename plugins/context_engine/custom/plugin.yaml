@@ -1,0 +1,7 @@
+name: custom
+version: 1.0.0
+description: "6 层自定义上下文压缩引擎：参数保护、分段划定、CCR 存储、LLM 摘要、完整性验证、检索能力"
+author: "Nous Research"
+type: context_engine
+engine: custom
+config_key: context.engine
